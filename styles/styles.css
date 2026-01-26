@@ -1,0 +1,69 @@
+header, footer{
+    background-color:aqua;
+}
+
+
+*
+{border: 1px solid red;
+
+}
+
+body{
+    margin:0;
+     font-size: 24px;
+    background-color: rgb(96, 134, 192);
+}
+
+nav {
+    text-align: center;
+}
+
+a {
+    padding: 20px;
+    color: black;
+}
+
+nav a:hover{
+    padding: 30px;
+    color: red;
+}
+
+h1 {
+background-color: white;
+}
+
+
+
+#content{
+    max-width:900px;
+    background-color:white;
+    margin: 0 auto;
+    padding: 60px;
+    border: 3px solid black;
+
+}
+img{
+    width: 50%;
+}
+#image {text-align: center;}
+
+h2, p, a, footer{
+    margin-left: 40px;
+    margin-right: 40px;
+}
+
+#title {
+    font-size: 3em;
+    background-color: white
+}
+
+.shadow{
+    background-color: lightgray;
+}
+p{
+    padding: 40px;
+    background-color: white;
+}
+footer{ 
+    text-align:center;
+}
