@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>My Favorite Devotionals</title>
+  <link rel="stylesheet" href="styles/styles.css" />
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <div class="header-image">
+        <h1>My Favorite<br>Devotionals</h1>
+      </div>
+    </header>
+    <main>
+      <div class="content-box">
+        <!-- Add your devotional content here -->
+        <table >
+          <tr>
+            <th>Speaker</th>
+            <th>Title</th>
+            <th>Location</th>
+            <th>Year</th>
+          </tr>
+          <tr>
+            <td>Neihlee Muir</td>
+            <td>I Will Prepare the Way Before You</td>
+            <td>BYU-Idaho</td>
+            <td>February 3rd, 2026</td>
+          </tr>
+          <tr>
+            <td>Elder Bruce C. & Sister Marie Hafen</td>
+            <td>“Severe Mercy”—Love and Sacrifice</td>
+            <td>BYU-Idaho</td>
+            <td>January 27th, 2026</td>
+          </tr>
+           <tr>
+            <td>Jennifer Platt</td>
+            <td>Washing Their Nets</td>
+            <td>BYU-Idaho</td>
+            <td>January 20th, 2026</td>
+          </tr>
+        </table>
+        <form action="/submit-page" method="POST">
+         <!-- Form elements will go here -->
+          <label for="Speaker">Speaker:</label>
+          <input type="text" id="name" name="user_name">
+
+           
+        </form>
+        <form action="/submit-page" method="POST">
+         <!-- Form elements will go here -->
+          <label for="Speaker">Title:</label>
+          <input type="text" id="name" name="user_name">
+
+           
+        </form>
+        <form action="/submit-page" method="POST">
+         <!-- Form elements will go here -->
+          <label for="Speaker">Location:</label>
+          <input type="text" id="name" name="user_name">
+
+           
+        </form>
+        <form action="/submit-page" method="POST">
+         <!-- Form elements will go here -->
+          <label for="Year">Year:</label>
+          <input type="text" id="name" name="user_name">
+
+          
+        </form>
+
+        <form action="/submit-page" method="POST">
+          <button type="submit">Submit</button>
+        </form>
+
+        
+        </form>
+      </div>
+    </main>
+  </div>
+</body>
+</html>
