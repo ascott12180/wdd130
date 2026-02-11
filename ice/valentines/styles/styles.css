@@ -1,0 +1,84 @@
+/* Add your CSS here to style your valentines day page */
+h1 {
+    color: rgb(204, 38, 66);
+    text-align: center;
+    font-style: oblique;
+    font-size: 60px;
+    text-shadow: 20px 20px 10px rgba(255, 82, 142, 0.7);
+}
+
+body {
+  background: linear-gradient(135deg, #ffafbd, #ffc3a0);
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background: linear-gradient( #b31217, #e52d27);
+  padding: 20px 0;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+ 
+
+ img {
+     width: 430px;
+            height: 430px;
+            text-align: center;
+            border-width: px;
+            border-color: rgb(236, 67, 24);
+            border-style: solid;
+            box-shadow: 40px 40px 40px rgba(5, 5, 5, 0.5);
+
+            display: block;
+            margin: 0 auto;
+ }
+
+ p{
+    text-align: center;
+    margin: 150px;
+    font-size: 30px;
+    margin-top: 100px;
+
+    color:rgb(69, 9, 124);
+    font-family:'Times New Roman', Times, serif;
+ }
+ 
+ h2 {
+    text-align: center;
+    color: crimson;
+    font-style: oblique;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    font-weight:normal;
+    margin-top: 10px;
+    font-size: 50px
+ }
+
+
+    
+ 
+
+ li{
+    color: rgb(243, 190, 190);
+    cursor: pointer;
+   
+    display:flex;
+    font-size: 25px;
+     
+ }
+
+li:hover {
+  color: #ff4da6;
+  
+  transform: scale(1.1);
+}
+
+ ul{
+    justify-content: center;
+    text-align: center;
+    display: flex;
+    gap: 50px;
+    
+ 
+ }
