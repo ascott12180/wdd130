@@ -74,7 +74,7 @@ cursor: pointer;
   
 }
 .card3 {
-    height: 200px;
+
     
 
   border-radius: 10px;
@@ -90,6 +90,7 @@ cursor: pointer;
   justify-content: center;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   flex-wrap: wrap; 
+  gap: 50px;
   
 }
 .card1:hover {
