@@ -1,0 +1,366 @@
+body {
+    background-color: #3E2C2C;
+    margin: 0;
+    font-family: 'Lora', serif;
+    
+}
+
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 40px;
+    padding: 20px 40px;
+    background-color: #C97C7C;
+    border-bottom: 5px solid #B59A5E;
+    position: relative;
+    height: 50px;
+}
+
+header a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+
+
+#logo {
+    width: 80px;
+    position: absolute;
+    left: 20px;
+}
+
+
+#homeimg {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+}
+
+
+.title {
+    position: absolute;
+    top: 180px;
+    left: 10%;
+    color: white;
+    font-size: 70px;
+    font-weight: bold;
+    font-family: 'Indie Flower', cursive;
+}
+
+.imgtext {
+    position: absolute;
+    top: 260px;
+    left: 10%;
+    font-size: 22px;
+    color: white;
+}
+
+
+.account, .log {
+    position: absolute;
+    top: 320px;
+    padding: 10px 20px;
+    background-color: #2B1E1E;
+    color: white;
+    cursor: pointer;
+    border-radius: 20px;
+    border: none;
+    font-size: 14px;
+    font-family: 'Indie Flower', cursive;
+}
+
+.account { left: 10%; }
+.log { left: 28%; }
+
+.account:hover, .log:hover {
+    background-color: #4a3333;
+}
+
+
+main {
+    color: #2B1E1E;
+    text-align: center;
+    background-color: #F5EFE6;
+    margin: 10px auto;
+    padding: 20px;
+    max-width: 900px;
+    border: 5px solid #B59A5E;
+    border-radius: 10px;
+    position: relative;
+}
+.home-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+
+    padding-left: 10%;
+    color: white;
+}
+
+
+.quotes {
+    text-align: center;
+    margin: 40px auto;
+    color: white;
+    
+}
+.quotes h1{
+    font-family: 'Indie Flower', cursive;
+
+}
+
+
+.slider-container {
+    position: relative;
+    max-width: 500px;
+    margin: 20px auto;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.slides {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.slide {
+    width: 100%;
+    height: 700px;
+    object-fit: cover;
+    flex-shrink: 0;
+    cursor: pointer;
+}
+
+
+.prev, .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0,0,0,0.5);
+    color: white;
+    border: none;
+    padding: 12px;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+.prev { left: 10px; }
+.next { right: 10px; }
+
+.prev:hover, .next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+#books {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 25px;
+    padding: 20px;
+    cursor: pointer;
+}
+#books div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    
+}
+#books img {
+    width: 120px;
+    height: 180px;
+    object-fit: cover;
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+}
+.explore {
+    display: flex;
+    align-items: flex-start;
+}
+#filter {
+    width: 250px;
+    padding: 20px;
+    background-color: #a7a4a0 ;
+}
+.explore-right{
+    flex: 1;
+    padding: 20px;
+}
+
+
+
+#filter th {
+    display: block;
+    margin: 8px 0;
+    font-weight: normal;
+    text-align: left;
+    cursor: pointer;
+    
+}
+
+
+#filter h2 {
+    margin-top: 15px;
+    font-size: 16px;
+    font-family: 'Indie Flower', cursive;
+    
+}
+.club{
+     color: #2B1E1E;
+    text-align: center;
+    background-color: #F5EFE6;
+    margin: 10px auto;
+    padding: 20px;
+    max-width: 900px;
+    border: 5px solid #B59A5E;
+    border-radius: 10px;
+    position: relative;
+    
+
+}
+.club h2{
+    font-family: 'Indie Flower', cursive;
+}
+.club {
+    margin-top: 50px;
+    padding: 20px;
+}
+
+#clubForm {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 30px;
+}
+#badges{
+    color: #2B1E1E;
+    text-align: center;
+    background-color: #ffffff;
+    margin: 10px auto;
+    padding: 20px;
+    max-width: 900px;
+    border: 5px solid #B59A5E;
+    border-radius: 10px;
+    position: relative;
+    font-family: 'Indie Flower', cursive;
+}
+#badgeimg{
+    width: 100%;
+    
+    margin: 10px auto;
+    padding-right: 20px;
+}
+.achieve {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 10px;
+    
+}
+
+.badge-section {
+    background-color: #F5EFE6;       
+    border: 5px solid #B59A5E;       
+    border-radius: 10px;             
+    padding: 15px 20px;
+    
+
+}
+.achieve h1{
+    text-align: center;
+    grid-column: 1 / -1;
+}
+.badge-section h2 {
+    text-align: center;
+    margin-bottom: 12px;
+    color: #2B1E1E;  
+    font-family: 'Indie Flower', cursive; 
+}             
+.badge-section ul {
+    list-style: disc inside;
+    padding-left: 10px;
+    margin: 0;
+}
+
+.badge-section li {
+    margin-bottom: 6px;
+    font-size: 14px;
+    color: #2B1E1E;
+}
+
+
+.badge-section:hover {
+    transform: translateY(-4px);
+    box-shadow: 4px 4px 15px rgba(0,0,0,0.15);
+}
+
+
+#badges {
+    color: #2B1E1E;
+    text-align: center;
+    background-color: #ffffff;
+    margin: 20px auto;
+    padding: 20px;
+    max-width: 900px;
+    border: 5px solid #B59A5E;
+    border-radius: 10px;
+}
+
+#badgeimg {
+    width: 100%;
+    max-width: 800px;
+    margin: 10px auto;
+    display: block;
+}
+
+
+main.achieve h1 {
+    text-align: center;
+    color: #2B1E1E;
+    margin-bottom: 25px;
+    font-size: 36px;
+    font-weight: bold;
+    font-family: 'Indie Flower', cursive;
+    
+    
+    
+}
+
+
+
+
+
+
+footer {
+   display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 40px;
+    padding: 20px 40px;
+    background-color: #C97C7C;
+    border-bottom: 5px solid #B59A5E;
+    position: relative;
+}
+
+#logofooter{
+    width: 100px;
+    height: 100px;
+    
+}
+
+footer a{
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    
+}

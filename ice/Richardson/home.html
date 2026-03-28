@@ -4,21 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Readrise</title>
-    <link rel="stylesheet" href="Richardson/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lora&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
      
+    
 </head>
+
+
 <body>
     <div>
         <header class="header">
-            <img src="book website pics/book website/Readrise logo - Copy.png" alt="logo">
-            <a href="">Explore</a>
-            <a href="">Home</a>
-            <a href="">Achieve</a>
+            <img src="book website pics/book website/Readrise logo - Copy.png" id="logo" alt="logo">
+            
+            <a href="explore.html">Explore</a>
+            <a href="home.html">Home</a>
+            <a href="achieve.html">Achieve</a>
             
 
         </header>
-        <main class="Home">
-            <img src="book website pics/book website/homeimage.webp" alt="homepage image">
+        <main class="home">
+            <img src="book website pics/book website/homeimage.webp" id="homeimg" alt="homepage image">
+            <div class="home-content">
+                <div class="title">Readrise</div>
+                <div class="imgtext">Discover, Track, Share</div>
+                <button class="account">create account</button>
+                <button class="log">log in</button>
+            </div>
             <p>Imagine a platform that doesn’t just help you find books — it turns reading into an experience. Our site combines personalized book recommendations powered by your tastes, community ratings, and comments, so you can see what real readers think, and a gamified reading tracker that rewards you with streaks, badges, and levels as you read. On top of that, users can generate beautiful, shareable quote aesthetics from the books they’ve saved, read, or favorited. It's Goodreads meets Duolingo meets Pinterest — all in one place — designed to make reading more social, motivating, and visually shareable. 
 
             </p>
@@ -52,12 +64,31 @@
                 <button class="next" onclick="plusSlides(1)">&#10095;</button>
             </div>
         </div>
+            <script>
+                let slideIndex = 0;
+
+                function plusSlides(n) {
+                    slideIndex += n;
+                    showSlide();
+                }
+
+                function showSlide() {
+                    const slidesContainer = document.querySelector(".slides");
+                    const totalSlides = document.querySelectorAll(".slide").length;
+
+                    if (slideIndex >= totalSlides) slideIndex = 0;
+                    if (slideIndex < 0) slideIndex = totalSlides - 1;
+
+                    slidesContainer.style.transform = `translateX(-${slideIndex * 100}%)`;
+                }
+            </script>
 
         <footer>
-            <a href="">Explore</a>
-            <a href="">Home</a>
-            <a href="">Achieve</a>
-            <img src="book website pics/book website/Readrise logo - Copy.png" alt="logo">
+            <a href="explore.html">Explore</a>
+            <a href="home.html">Home</a>
+            <a href="achieve.html">Achieve</a>
+            
+            <img src="book website pics/book website/Readrise logo - Copy.png" id="logofooter" alt="logo">
             <p>Copyright © Readrise 2026</p>
         </footer>
 
