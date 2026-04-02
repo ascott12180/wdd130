@@ -42,7 +42,7 @@ header a {
 
 .title {
     position: absolute;
-    top: 180px;
+    top: 75px;
     left: 10%;
     color: white;
     font-size: 70px;
@@ -52,16 +52,21 @@ header a {
 
 .imgtext {
     position: absolute;
-    top: 260px;
+    top: 160px;
     left: 10%;
     font-size: 22px;
     color: white;
 }
-
+.button-container {
+    position: absolute;
+    top: 200px;
+    left: 10%;
+    display: flex;
+    gap: 20px; 
+    flex-wrap: wrap; 
+}
 
 .account, .log {
-    position: absolute;
-    top: 320px;
     padding: 10px 20px;
     background-color: #2B1E1E;
     color: white;
@@ -70,7 +75,10 @@ header a {
     border: none;
     font-size: 14px;
     font-family: 'Indie Flower', cursive;
+    transition: background-color 0.3s ease;
 }
+
+
 
 .account { left: 10%; }
 .log { left: 28%; }
@@ -78,7 +86,12 @@ header a {
 .account:hover, .log:hover {
     background-color: #4a3333;
 }
-
+@media (max-width: 600px) {
+    .account, .log {
+        font-size: 12px;
+        padding: 8px 16px;
+    }
+}
 
 main {
     color: #2B1E1E;
@@ -112,10 +125,12 @@ main {
     text-align: center;
     margin: 40px auto;
     color: white;
+    font-size: 25px;
     
 }
 .quotes h1{
     font-family: 'Indie Flower', cursive;
+
 
 }
 
@@ -195,6 +210,9 @@ main {
     padding: 20px;
 }
 
+#search{
+    width: 75%;
+}
 
 
 #filter th {
