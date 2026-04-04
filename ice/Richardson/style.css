@@ -371,8 +371,9 @@ footer {
 }
 
 #logofooter{
-    width: 100px;
-    height: 100px;
+    width: 80px;
+    height: 80%;
+    align-items: end;
     
 }
 
@@ -381,4 +382,10 @@ footer a{
     text-decoration: none;
     font-weight: bold;
     
+}
+
+footer p{
+    font-size: small;
+    padding-top: 10px;
+    padding-right: 50px;
 }
