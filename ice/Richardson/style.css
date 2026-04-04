@@ -355,53 +355,44 @@ main.achieve h1 {
     
 }
 
-
-
-
-
-
 footer {
     background-color: #C97C7C;
     border-top: 5px solid #B59A5E;
-    width: 100%;
 }
 
+/* main layout */
 .footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
     max-width: 1300px;
     margin: auto;
+    padding: 20px;
+}
+
+/* right side (links + logo together) */
+.footer-right {
     display: flex;
     align-items: center;
-    
-   
-    gap: 30px;
-    justify-content: flex-start;
+    gap: 15px;
 }
 
-#logofooter {
-    width: 80px;
-    height: 80%;
-    margin-left: auto;
-}
-
+/* links */
 footer a {
     color: white;
     text-decoration: none;
     font-weight: bold;
-    
-    
-    
 }
 
+/* text */
 footer p {
+    margin: 0;
     font-size: small;
-    width: 100%;
-    padding-right: 57%;
 }
 
-@media (max-width: 600px) {
-    .footer-container {
-        flex-direction: column;
-        align-items: flex-start;
-        text-align: left;
-    }
+/* logo */
+#logofooter {
+    width: 80px;
+    height: auto;
 }
