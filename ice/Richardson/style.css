@@ -360,7 +360,7 @@ footer {
     border-top: 5px solid #B59A5E;
 }
 
-/* main layout */
+
 .footer-container {
     display: flex;
     justify-content: space-between;
@@ -371,27 +371,27 @@ footer {
     padding: 20px;
 }
 
-/* right side (links + logo together) */
+
 .footer-right {
     display: flex;
     align-items: center;
     gap: 15px;
 }
 
-/* links */
+
 footer a {
     color: white;
     text-decoration: none;
     font-weight: bold;
 }
 
-/* text */
+
 footer p {
     margin: 0;
     font-size: small;
 }
 
-/* logo */
+
 #logofooter {
     width: 80px;
     height: auto;
