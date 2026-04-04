@@ -120,6 +120,11 @@ cursor: pointer;
   box-shadow: 0 12px 25px rgba(0,0,0,0.2);
   cursor: pointer;
 }
+.card4:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 25px rgba(0,0,0,0.2);
+  cursor: pointer;}
+  
 h3{
   font-size: small;
   color: black;
