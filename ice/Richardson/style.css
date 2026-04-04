@@ -360,7 +360,7 @@ main.achieve h1 {
 
 
 footer {
-   display: flex;
+    display: flex;
     align-items: center;
     justify-content: flex-end;
     gap: 40px;
@@ -385,7 +385,7 @@ footer a{
 }
 
 footer p{
+    padding-top: 30px;
     font-size: small;
-    padding-top: 10px;
-    padding-right: 50px;
+    padding-right: 55%;
 }
