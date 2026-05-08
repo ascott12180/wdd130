@@ -1,0 +1,59 @@
+header{
+    background-color: #2A80E2;
+    height: 140px;
+    width: 100%;
+    
+    color: white;
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0 auto;
+    flex-direction: column;
+    
+    
+}
+h1{
+    padding-top: 3%;
+    margin: 0;
+    
+}
+nav {
+    display: flex;
+    gap: 20%; 
+    margin-top: 5px;
+    
+}
+
+a{
+   
+   margin-top: 5px;
+   
+}
+body{
+    background-color: #C2C2C2;
+    text-align: center;
+}
+
+.pics{
+    display: grid;
+    grid-template-columns:  repeat(3, 1fr);
+    gap: 20px;
+    margin: 20px auto;
+}
+
+.pics img{
+    width: 100%;
+    height: auto;
+}
+
+footer{
+    background-color: #2A80E2;
+    height: 100px;
+    width: 100%;
+    
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
