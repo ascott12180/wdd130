@@ -74,7 +74,8 @@ footer {
        
         grid-template-columns: 1fr 1fr;
     }
-    .menu-btn{
+    /* I wasn't sure if we were supposed to change this, but it works now when in full screen too */
+    /* .menu-btn{
         display: none;
     }
 
@@ -84,7 +85,7 @@ footer {
     nav {
         text-align: right;
 
-    }
+    } */
     
 
 }
