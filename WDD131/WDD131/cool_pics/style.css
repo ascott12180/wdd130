@@ -1,8 +1,8 @@
 header{
     background-color: #2A80E2;
-    height: 140px;
+    min-height: 140px;
     width: 100%;
-    
+    padding-bottom:20px;
     color: white;
     display: flex;
     text-align: center;
@@ -18,17 +18,28 @@ h1{
     margin: 0;
     
 }
+.menu{
+    display: block;
+    color: white;
+    font-size: 150%;
+    margin-top: 20px;
+
+}
 nav {
-    display: flex;
-    gap: 10% ; 
-    margin-top: 5px;
-    justify-content: center;
+    display: none;
+  
     
+}
+nav.show {
+display: flex;
+flex-direction: column;
+gap: 10px;
 }
 
 a{
    
    margin-top: 5px;
+   color:white
    
 }
 body{
@@ -42,13 +53,39 @@ body{
     gap: 20px;
     margin: 20px auto;
     padding: 30px;
+    border-width: 1px;
+    border-color: white;
+    
 }
 
 .pics img{
-    width: 100%;
+    object-fit: cover;
+    width: 100%; 
     height: auto;
+    border: 5px solid white;
+    box-shadow: 0 4px 8px black;
+    
+    
+    
+}
+dialog img {
+    width: 50%;
+    display: block;
+    margin: 20vh auto;
 }
 
+dialog {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,.75); 
+}
+.close {
+    position: absolute;
+    top: 16%;
+    right: 23%;
+    padding: 3px 6px;
+    font-size: 1.5em;
+}
 footer{
     background-color: #2A80E2;
     height: 100px;
@@ -64,9 +101,19 @@ footer{
     .pics{
         grid-template-columns: 1fr 1fr;
     }
+    .menu{
+        display: none;
+    }
     nav{
+        display: flex;
         gap: 15%;
+        margin-top: 5px;
         font-size: 20px;
+        justify-content: center;
+        
+    }
+    nav.show{
+        display: none;
     }
 }
 
@@ -78,6 +125,7 @@ footer{
     }
     nav{
         gap: 17%;
+        
     }
 }
           
