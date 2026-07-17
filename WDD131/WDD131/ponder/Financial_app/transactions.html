@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BudgetWise | Transactions</title>
+
+    <link rel="stylesheet" href="style.css">
+    <script src="transactions.js" defer></script>
+</head>
+<body>
+
+<main class="dashboard">
+
+    
+    <aside class="sidebar">
+
+        <img src="budget logo.png" alt="BudgetWise Logo" class="logo">
+
+        <nav>
+            <a href="home.html">🏠 Home</a>
+            <a href="transactions.html" class="active">💳 Transactions</a>
+        </nav>
+
+    </aside>
+
+    
+    <section class="content">
+
+        
+        <header class="top-header">
+
+            <div>
+                <h1>Transactions</h1>
+                <p>View and manage all of your transactions.</p>
+            </div>
+
+        </header>
+
+        
+        <section class="filters">
+
+            <select id="filterType">
+
+                <option value="all">All Transactions</option>
+                <option value="income">Income</option>
+                <option value="expense">Expenses</option>
+
+            </select>
+
+            <select id="sortBy">
+
+                <option value="newest">Newest First</option>
+                <option value="oldest">Oldest First</option>
+                <option value="highest">Highest Amount</option>
+                <option value="lowest">Lowest Amount</option>
+
+            </select>
+
+            <input
+                type="text"
+                id="search"
+                placeholder="Search transactions..."
+            >
+
+        </section>
+
+    
+        <section class="transactions">
+
+            <table>
+
+                <thead>
+
+                    <tr>
+
+                        <th>Name</th>
+                        <th>Category</th>
+                        <th>Type</th>
+                        <th>Amount</th>
+                        <th>Actions</th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody id="transactionTable">
+
+                    
+
+                </tbody>
+
+            </table>
+
+        </section>
+
+       
+        <section class="transaction-buttons">
+
+
+            <button onclick="location.href='home.html'">
+                + Add Transaction
+            </button>
+
+        </section>
+
+    </section>
+
+</main>
+
+
+
+</body>
+</html>
