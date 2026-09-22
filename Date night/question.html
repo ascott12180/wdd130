@@ -1,0 +1,1437 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Date Night 💕</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #ffd6e7, #fff0f6, #ffe4ef);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #5a3045;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: "♥";
+            position: fixed;
+            top: 8%;
+            left: 8%;
+            font-size: 70px;
+            color: rgba(255, 105, 160, 0.15);
+            transform: rotate(-20deg);
+        }
+
+        body::after {
+            content: "♥";
+            position: fixed;
+            bottom: 8%;
+            right: 8%;
+            font-size: 90px;
+            color: rgba(255, 105, 160, 0.15);
+            transform: rotate(20deg);
+        }
+
+        .container {
+            width: 90%;
+            max-width: 700px;
+            text-align: center;
+        }
+
+        .progress-container {
+            width: 100%;
+            height: 12px;
+            background: white;
+            border-radius: 20px;
+            margin-bottom: 20px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(180, 70, 110, 0.15);
+        }
+
+        .progress-bar {
+            height: 100%;
+            width: 10%;
+            background: linear-gradient(90deg, #ff6fa5, #ff9fc2);
+            border-radius: 20px;
+            transition: width 0.4s ease;
+        }
+
+        section {
+            display: none;
+        }
+
+        section.active {
+            display: block;
+        }
+
+        .box {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 40px 30px;
+            border-radius: 28px;
+            border: 3px solid #ffc1d8;
+            box-shadow: 0 15px 40px rgba(180, 70, 110, 0.2);
+            position: relative;
+        }
+
+        h1 {
+            color: #e84f89;
+            font-size: 42px;
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            color: #df5b8e;
+            font-size: 30px;
+        }
+
+        h3 {
+            color: #d85b8b;
+        }
+
+        p {
+            font-size: 19px;
+            line-height: 1.6;
+        }
+
+        .heart {
+            font-size: 55px;
+            animation: heartbeat 1.2s infinite;
+            display: inline-block;
+        }
+
+        @keyframes heartbeat {
+            0% {
+                transform: scale(1);
+            }
+
+            25% {
+                transform: scale(1.15);
+            }
+
+            40% {
+                transform: scale(1);
+            }
+
+            60% {
+                transform: scale(1.12);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        button {
+            border: none;
+            padding: 14px 28px;
+            margin: 10px;
+            border-radius: 30px;
+            background: linear-gradient(135deg, #ff6fa5, #ff8fba);
+            color: white;
+            font-size: 17px;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 7px 15px rgba(230, 75, 130, 0.25);
+            transition: 0.2s;
+        }
+
+        button:hover {
+            transform: translateY(-3px) scale(1.03);
+            box-shadow: 0 10px 20px rgba(230, 75, 130, 0.35);
+        }
+
+        button:active {
+            transform: scale(0.96);
+        }
+
+        .slider {
+            width: 80%;
+            accent-color: #ff6fa5;
+            margin: 20px;
+        }
+
+        .slider.locked {
+            pointer-events: none;
+            opacity: 0.8;
+        }
+
+        .number {
+            font-size: 45px;
+            font-weight: bold;
+            color: #e84f89;
+        }
+
+        .rating-message {
+            min-height: 35px;
+            font-weight: bold;
+            color: #d34d83;
+        }
+
+        .captcha-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            max-width: 400px;
+            margin: 25px auto;
+        }
+
+        .captcha {
+            height: 90px;
+            border: 3px solid #ffd0e0;
+            background: #fff6fa;
+            border-radius: 15px;
+            font-size: 40px;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: 0.2s;
+            user-select: none;
+        }
+
+        .captcha:hover {
+            background: #ffe4ef;
+            transform: scale(1.05);
+        }
+
+        .selected {
+            border-color: #e84f89;
+            background: #ffd3e2;
+        }
+
+        .memory-options,
+        .personality-options {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .memory-options button,
+        .personality-options button {
+            width: 80%;
+            max-width: 400px;
+        }
+
+        .contract {
+            background: #fff7fb;
+            border: 2px dashed #f19abb;
+            border-radius: 20px;
+            padding: 20px;
+            text-align: left;
+            margin: 20px 0;
+        }
+
+        .contract label {
+            display: block;
+            margin: 15px 0;
+            font-size: 17px;
+        }
+
+        input[type="checkbox"] {
+            accent-color: #ff6fa5;
+            transform: scale(1.3);
+            margin-right: 10px;
+        }
+
+        #noButton {
+            position: relative;
+        }
+
+        .success {
+            font-size: 60px;
+            color: #e84f89;
+            animation: heartbeat 1.2s infinite;
+        }
+
+        .tiny {
+            font-size: 14px;
+            color: #9b6a7d;
+        }
+
+        /* Silly GIF-style dog */
+        .silly-dog {
+            font-size: 90px;
+            display: inline-block;
+            animation: dogDance 0.6s infinite alternate ease-in-out;
+        }
+
+        @keyframes dogDance {
+            0% {
+                transform: rotate(-15deg) translateY(5px);
+            }
+
+            100% {
+                transform: rotate(15deg) translateY(-10px);
+            }
+        }
+
+        .final-buttons button {
+            min-width: 150px;
+        }
+
+        @media (max-width: 600px) {
+
+            .box {
+                padding: 30px 20px;
+            }
+
+            h1 {
+                font-size: 32px;
+            }
+
+            h2 {
+                font-size: 25px;
+            }
+
+            p {
+                font-size: 17px;
+            }
+
+            .captcha {
+                height: 70px;
+                font-size: 30px;
+            }
+        }
+    </style>
+</head>
+
+
+<body>
+
+    <div class="container">
+
+        <!-- PROGRESS BAR -->
+
+        <div class="progress-container">
+
+            <div
+                class="progress-bar"
+                id="progressBar">
+            </div>
+
+        </div>
+
+
+        <!-- ========================= -->
+        <!-- SECTION 1 -->
+        <!-- ========================= -->
+
+        <section
+            id="section1"
+            class="active">
+
+            <div class="box">
+
+                <div class="heart">
+                    ♥
+                </div>
+
+                <h1>
+                    Kaitlyn Gane Gringles!
+                </h1>
+
+                <h2>
+                    I have a question for you...
+                </h2>
+
+                <p>
+                    But before I ask, you need to mentally prepare yourself.
+                </p>
+
+                <button onclick="showSection(2)">
+                    What?
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- ========================= -->
+        <!-- SECTION 2 -->
+        <!-- ========================= -->
+
+        <section id="section2">
+
+            <div class="box">
+
+                <div class="heart">
+                    💗
+                </div>
+
+                <h2>
+                    I really don't know how to ask you this...
+                </h2>
+
+                <p id="dramaticText">
+                    This is actually very serious.
+                </p>
+
+                <p>
+                    I have spent an unreasonable amount of time thinking about this.
+                </p>
+
+                <button onclick="showSection(3)">
+                    I'm Ready
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- ========================= -->
+        <!-- SECTION 3 -->
+        <!-- HER CUTE-NESS -->
+        <!-- ========================= -->
+
+        <section id="section3">
+
+            <div class="box">
+
+                <h2>
+                    How cute are you? 😌
+                </h2>
+
+                <p>
+                    We both know how cute you are.
+                </p>
+
+                <input
+                    type="range"
+                    min="1"
+                    max="10"
+                    value="10"
+                    class="slider"
+                    id="rating1"
+                    oninput="updateRating1()">
+
+                <div
+                    class="number"
+                    id="number1">
+                    10
+                </div>
+
+                <div
+                    class="rating-message"
+                    id="ratingMessage1">
+                    Obviously correct.
+                </div>
+
+                <button onclick="showSection(4)">
+                    True
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- ========================= -->
+        <!-- SECTION 4 -->
+        <!-- YOUR CUTE-NESS -->
+        <!-- ========================= -->
+
+        <section id="section4">
+
+            <div class="box">
+
+                <h2>
+                    And how cute I am...
+                </h2>
+
+                <input
+                    type="range"
+                    min="1"
+                    max="10"
+                    value="10"
+                    class="slider"
+                    id="rating2"
+                    oninput="lockRating2()">
+
+                <div
+                    class="number"
+                    id="number2">
+                    10
+                </div>
+
+                <div
+                    class="rating-message"
+                    id="ratingMessage2">
+                    Choose carefully...
+                </div>
+
+                <p class="tiny">
+                    Please answer truthfully.
+                    This is a legally binding scientific study.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- ========================= -->
+        <!-- SECTION 5 -->
+        <!-- CAPTCHA -->
+        <!-- ========================= -->
+
+        <section id="section5">
+
+            <div class="box">
+
+                <h2>
+                    Security Check 🔐
+                </h2>
+
+                <p>
+                    Before proceeding, we need to make sure you're not a robot.
+                </p>
+
+                <p>
+                    Select all squares containing Ashton.
+                </p>
+
+
+                <div class="captcha-grid">
+
+                    <!-- CORRECT -->
+
+                    <div
+                        class="captcha"
+                        onclick="selectCaptcha(this, true)">
+                        🐶
+                    </div>
+
+                    <!-- CORRECT -->
+
+                    <div
+                        class="captcha"
+                        onclick="selectCaptcha(this, true)">
+                        🧍
+                    </div>
+
+                    <!-- WRONG -->
+
+                    <div
+                        class="captcha"
+                        onclick="selectCaptcha(this, false)">
+                        🌮
+                    </div>
+
+                    <!-- WRONG -->
+
+                    <div
+                        class="captcha"
+                        onclick="selectCaptcha(this, false)">
+                        🌹
+                    </div>
+
+                    <!-- CORRECT -->
+
+                    <div
+                        class="captcha"
+                        onclick="selectCaptcha(this, true)">
+                        🧍
+                    </div>
+
+                    <!-- WRONG -->
+
+                    <div
+                        class="captcha"
+                        onclick="selectCaptcha(this, false)">
+                        🐸
+                    </div>
+
+                </div>
+
+
+                <p id="captchaMessage"></p>
+
+                <button onclick="finishCaptcha()">
+                    Verify
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- ========================= -->
+        <!-- SECTION 6 -->
+        <!-- ========================= -->
+
+        <section id="section6">
+
+            <div class="box">
+
+                <h2>
+                    Memory Test 🧠
+                </h2>
+
+                <p>
+                    Quick question.
+                </p>
+
+                <p>
+                    What is my name?
+                </p>
+
+
+                <div class="memory-options">
+
+                    <button onclick="memoryAnswer(false)">
+                        George
+                    </button>
+
+                    <button onclick="memoryAnswer(true)">
+                        Ashton
+                    </button>
+
+                    <button onclick="memoryAnswer(false)">
+                        Some Guy
+                    </button>
+
+                    <button onclick="memoryAnswer(false)">
+                        Greg
+                    </button>
+
+                </div>
+
+
+                <p id="memoryMessage"></p>
+
+            </div>
+
+        </section>
+
+
+        <!-- ========================= -->
+        <!-- SECTION 7 -->
+        <!-- ========================= -->
+
+        <section id="section7">
+
+            <div class="box">
+
+                <h2>
+                    Personality Test 🧐
+                </h2>
+
+                <p>
+                    Which version of Ashton are you agreeing to spend time with?
+                </p>
+
+
+                <div class="personality-options">
+
+                    <button
+                        onclick="personalityAnswer('responsible')">
+                        Responsible Ashton
+                    </button>
+
+                    <button
+                        onclick="personalityAnswer('chaotic')">
+                        Chaotic Ashton
+                    </button>
+
+                    <button
+                        onclick="personalityAnswer('both')">
+                        Somehow Both
+                    </button>
+
+                </div>
+
+
+                <p id="personalityMessage"></p>
+
+            </div>
+
+        </section>
+
+
+        <!-- ========================= -->
+        <!-- SECTION 8 -->
+        <!-- AGREEMENT -->
+        <!-- ========================= -->
+
+        <section id="section8">
+
+            <div class="box">
+
+                <h2>
+                    Official Date Agreement 💕
+                </h2>
+
+                <p>
+                    Please review the terms and conditions.
+                </p>
+
+
+                <div class="contract">
+
+                    <label>
+
+                        <input
+                            type="checkbox"
+                            id="term1">
+
+                        I agree to have fun.
+
+                    </label>
+
+
+                    <label>
+
+                        <input
+                            type="checkbox"
+                            id="term2">
+
+                        I agree Ashton will buy dinner.
+
+                    </label>
+
+
+                    <label>
+
+                        <input
+                            type="checkbox"
+                            id="term3">
+
+                        I agree to laugh at Ashton's jokes.
+
+                    </label>
+
+
+                    <label>
+
+                        <input
+                            type="checkbox"
+                            id="term4">
+
+                        I agree that this is a pretty cute website.
+
+                    </label>
+
+                </div>
+
+
+                <button onclick="checkAgreement()">
+                    Accept Terms 💗
+                </button>
+
+
+                <p id="agreementMessage"></p>
+
+            </div>
+
+        </section>
+
+
+        <!-- ========================= -->
+        <!-- SECTION 9 -->
+        <!-- FINAL QUESTION -->
+        <!-- ========================= -->
+
+        <section id="section10">
+
+            <div class="box">
+
+                <div class="heart">
+                    💗
+                </div>
+
+                <h1>
+                    Okay Kaitlyn...
+                </h1>
+
+                <h2>
+                    Date Night?
+                </h2>
+
+                <p>
+                    Choose wisely.
+                </p>
+
+
+                <button onclick="finalYes()">
+                    YES ❤️
+                </button>
+
+
+                <button
+                    id="noButton"
+                    onmouseover="moveNoButton()">
+
+                    No
+
+                </button>
+
+
+               
+
+            </div>
+
+        </section>
+
+
+        <!-- ========================= -->
+        <!-- SECTION 10 -->
+        <!-- EXTRA QUESTION -->
+        <!-- ========================= -->
+
+        <section id="section9">
+
+            <div class="box">
+
+                <div class="heart">
+                    💗
+                </div>
+
+                <h2>
+                    One extremely important question...
+                </h2>
+
+                <p>
+                    You wanna make out? 😌
+                </p>
+
+
+                <div class="final-buttons">
+
+                    <button onclick="yesClicked()">
+                        Heck Yeah!! ❤️
+                    </button>
+
+                    <button onclick="finalMaybe()">
+                        Let me think 🤔
+                    </button>
+
+                </div>
+
+
+                <p id="finalMessage"></p>
+
+            </div>
+
+        </section>
+
+    </div>
+
+
+    <script>
+
+        // =========================
+        // VARIABLES
+        // =========================
+
+        let captchaCorrect = 0;
+
+        let captchaSelected = 0;
+
+        let rating2Locked = false;
+
+
+        // =========================
+        // NAVIGATION
+        // =========================
+
+        function showSection(number) {
+
+            const sections =
+                document.querySelectorAll("section");
+
+
+            sections.forEach(function(section) {
+
+                section.classList.remove("active");
+
+            });
+
+
+            document
+                .getElementById("section" + number)
+                .classList.add("active");
+
+
+            updateProgress(number);
+
+
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+
+        }
+
+
+        // =========================
+        // PROGRESS BAR
+        // =========================
+
+        function updateProgress(number) {
+
+            const percentage =
+                (number / 10) * 100;
+
+
+            document
+                .getElementById("progressBar")
+                .style.width =
+                percentage + "%";
+
+        }
+
+
+        // =========================
+        // DRAMATIC TEXT
+        // =========================
+
+        setTimeout(function() {
+
+            const text =
+                document.getElementById("dramaticText");
+
+
+            if (text) {
+
+                text.innerText =
+                    "Okay... maybe it's not THAT serious.";
+
+            }
+
+        }, 3000);
+
+
+        // =========================
+        // HER SLIDER
+        // SLOWLY RETURNS TO 10
+        // =========================
+
+        function updateRating1() {
+
+            const slider =
+                document.getElementById("rating1");
+
+            const number =
+                document.getElementById("number1");
+
+            const message =
+                document.getElementById("ratingMessage1");
+
+
+            number.innerText =
+                slider.value;
+
+
+            if (slider.value <= 3) {
+
+                message.innerText =
+                    "You may need to adjust your answer.";
+
+            }
+
+            else if (slider.value <= 6) {
+
+                message.innerText =
+                    "We're getting somewhere.";
+
+            }
+
+            else if (slider.value <= 9) {
+
+                message.innerText =
+                    "Okay, now we're being honest.";
+
+            }
+
+            else {
+
+                message.innerText =
+                    "Obviously correct. 💕";
+
+            }
+
+        }
+
+
+        // Slowly move HER slider toward 10
+
+        setInterval(function() {
+
+            const slider =
+                document.getElementById("rating1");
+
+            const section =
+                document.getElementById("section3");
+
+
+            // Only move it while Section 3 is visible
+
+            if (
+                slider &&
+                section.classList.contains("active") &&
+                Number(slider.value) < 10
+            ) {
+
+                slider.value =
+                    Number(slider.value) + 1;
+
+
+                updateRating1();
+
+            }
+
+        }, 350);
+
+
+        // =========================
+        // YOUR SLIDER
+        // STAYS WHERE SHE PUTS IT
+        // =========================
+
+        function lockRating2() {
+
+            if (rating2Locked) {
+                return;
+            }
+
+
+            const slider =
+                document.getElementById("rating2");
+
+            const number =
+                document.getElementById("number2");
+
+            const message =
+                document.getElementById("ratingMessage2");
+
+
+            // Save her exact answer
+
+            const selectedRating =
+                slider.value;
+
+
+            // Display the selected number
+
+            number.innerText =
+                selectedRating;
+
+
+            // Lock the slider
+
+            rating2Locked = true;
+
+            slider.classList.add("locked");
+
+
+            // Funny response
+
+            if (selectedRating <= 3) {
+
+                message.innerText =
+                    "WOW. Okay. That's hurtful. 😭";
+
+            }
+
+            else if (selectedRating <= 6) {
+
+                message.innerText =
+                    "That's... honestly disappointing. 😔";
+
+            }
+
+            else if (selectedRating <= 9) {
+
+                message.innerText =
+                    "I was hoping for a 10. But okay... 😐";
+
+            }
+
+            else {
+
+                message.innerText =
+                    "Finally. You made the correct decision. ❤️";
+
+            }
+
+
+            // Automatically continue
+
+            setTimeout(function() {
+
+                showSection(5);
+
+            }, 1800);
+
+        }
+
+
+        // =========================
+        // CAPTCHA
+        // =========================
+
+        function selectCaptcha(element, correct) {
+
+            // If already selected,
+            // clicking again UNSELECTS it
+
+            if (
+                element.classList.contains("selected")
+            ) {
+
+                element.classList.remove("selected");
+
+                captchaSelected--;
+
+
+                if (correct) {
+
+                    captchaCorrect--;
+
+                }
+
+
+                return;
+
+            }
+
+
+            // Select the square
+
+            element.classList.add("selected");
+
+            captchaSelected++;
+
+
+            if (correct) {
+
+                captchaCorrect++;
+
+            }
+
+        }
+
+
+        function finishCaptcha() {
+
+            const message =
+                document.getElementById("captchaMessage");
+
+
+            // There are 3 correct squares:
+            // DOG + HUMAN + HUMAN
+
+            if (
+                captchaCorrect === 3 &&
+                captchaSelected === 3
+            ) {
+
+                message.innerText =
+                    "Verification successful. Very impressive. 🤖❤️";
+
+
+                setTimeout(function() {
+
+                    showSection(6);
+
+                }, 1200);
+
+            }
+
+            else {
+
+                message.innerText =
+                    "Incorrect. Select all correct answers. 😭";
+
+            }
+
+        }
+
+
+        // =========================
+        // MEMORY TEST
+        // =========================
+
+        function memoryAnswer(correct) {
+
+            const message =
+                document.getElementById("memoryMessage");
+
+
+            if (correct) {
+
+                message.innerText =
+                    "Correct! Your memory appears to be functioning. 🧠❤️";
+
+
+                setTimeout(function() {
+
+                    showSection(7);
+
+                }, 1200);
+
+            }
+
+            else {
+
+                message.innerText =
+                    "That's concerning... try again.";
+
+            }
+
+        }
+
+
+        // =========================
+        // PERSONALITY TEST
+        // =========================
+
+        function personalityAnswer(type) {
+
+            const message =
+                document.getElementById("personalityMessage");
+
+
+            if (type === "responsible") {
+
+                message.innerText =
+                    "Interesting choice. We both know that's not entirely true.";
+
+            }
+
+            else if (type === "chaotic") {
+
+                message.innerText =
+                    "Correct. You understand me already.";
+
+            }
+
+            else {
+
+                message.innerText =
+                    "Exactly. That's the scientifically accurate answer.";
+
+            }
+
+
+            setTimeout(function() {
+
+                showSection(8);
+
+            }, 1800);
+
+        }
+
+
+        // =========================
+        // DATE AGREEMENT
+        // =========================
+
+        function checkAgreement() {
+
+            const term1 =
+                document.getElementById("term1").checked;
+
+            const term2 =
+                document.getElementById("term2").checked;
+
+            const term3 =
+                document.getElementById("term3").checked;
+
+            const term4 =
+                document.getElementById("term4").checked;
+
+
+            const message =
+                document.getElementById("agreementMessage");
+
+
+            if (
+                term1 &&
+                term2 &&
+                term3 &&
+                term4
+            ) {
+
+                message.innerText =
+                    "Agreement accepted. Excellent decision. 💕";
+
+
+                setTimeout(function() {
+
+                    showSection(9);
+
+                }, 1200);
+
+            }
+
+            else {
+
+                message.innerText =
+                    "Please agree to all extremely important legal terms.";
+
+            }
+
+        }
+
+
+        // =========================
+        // MOVING NO BUTTON
+        // =========================
+
+        function moveNoButton() {
+
+            const button =
+                document.getElementById("noButton");
+
+
+            const maxX = 250;
+
+            const maxY = 150;
+
+
+            const randomX =
+                Math.floor(
+                    Math.random() * (maxX * 2)
+                ) - maxX;
+
+
+            const randomY =
+                Math.floor(
+                    Math.random() * (maxY * 2)
+                ) - maxY;
+
+
+            button.style.transform =
+                "translate(" +
+                randomX +
+                "px, " +
+                randomY +
+                "px)";
+
+        }
+
+
+        // =========================
+        // YES BUTTON
+        // =========================
+
+        function yesClicked() {
+
+            showSection(10);
+
+        }
+
+
+        // =========================
+        // FINAL QUESTION
+        // =========================
+
+        function finalYes() {
+
+            document.body.innerHTML = `
+
+                <div style="
+                    min-height: 100vh;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    text-align: center;
+                    padding: 30px;
+                    background: linear-gradient(
+                        135deg,
+                        #ffd6e7,
+                        #fff0f6,
+                        #ffe4ef
+                    );
+                    font-family: Arial, sans-serif;
+                ">
+
+                    <div>
+
+                        <div class="silly-dog">
+                            🐕
+                        </div>
+
+                        <h1 style="
+                            color: #e84f89;
+                            font-size: 50px;
+                        ">
+                            SHE SAID YES TO THE MESS! 💕
+                        </h1>
+
+                        <p style="
+                            font-size: 22px;
+                            color: #5a3045;
+                        ">
+                            Date scheduled this friday.
+                        </p>
+
+                        <p style="
+                            font-size: 18px;
+                            color: #7d5365;
+                        ">
+                            
+                        </p>
+
+                        <p style="
+                            font-size: 28px;
+                            margin-top: 25px;
+                        ">
+                            
+                        </p>
+
+                        <p style="
+                            font-size: 16px;
+                            color: #9b6a7d;
+                        ">
+                            The dog has been notified.
+                        </p>
+
+                        <div style="
+                            font-size: 45px;
+                            margin-top: 20px;
+                        ">
+                            💗 💕 💗
+                        </div>
+
+                    </div>
+
+                </div>
+
+            `;
+
+        }
+
+
+        function finalMaybe() {
+
+            const message =
+                document.getElementById("finalMessage");
+
+
+            message.innerText =
+                "That's okay, I'll wait. 🐕";
+
+        }
+
+    </script>
+
+</body>
+
+</html>
+```
